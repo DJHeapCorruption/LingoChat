@@ -1,11 +1,6 @@
 :root{
     font-family: "caprasimo", "roboto", sans-serif;
 }
-body{
-    background-color: rgb(34, 182, 246);
-    padding: 10px 30px;
-}
-
 
 body{
     background-color: rgb(34, 182, 246);
@@ -28,5 +23,14 @@ body{
     height: 300px;
     background-color: white;
     border-radius: 4px;
-    I
 }
+
+#map{
+    height: 750px;
+    margin-top: 20px;
+}
+  .main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
