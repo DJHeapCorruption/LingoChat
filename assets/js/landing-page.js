@@ -6,12 +6,17 @@ var myUser = {
     targetLang: ""
 }
 
+//Render
 function UserCreation (){
     if (localStorage.getItem("LingoChatUser")){
         myUser = JSON.parse(localStorage.getItem("LingoChatUser"));
-    } else {
-        $("#exampleModal").modal("show");
+        console.log(myUser);
+        $("#first_name").val(myUser.firstName);
+        $("#last_name").val(myUser.lastName);
+        $("#known_lang").val(myUser.knownLang);
+        $("#target_lang").val(myUser.targetLang);
     }
+    $("#exampleModal").modal("show");
 }
 
 $("#userModalToggleButton").on("click", function(){
@@ -23,8 +28,9 @@ $("#submit-button").on("click",function(){
     myUser.lastName = $("#last_name").val();
     myUser.knownLang = $("#known_lang").val();
     myUser.targetLang = $("#target_lang").val();
-    $("#exampleModal").modal("hide");
     console.log(myUser);
+    localStorage.setItem("LingoChatUser",JSON.stringify(myUser));
+    $("#exampleModal").modal("hide");
 });
 
 UserCreation();
