@@ -11,4 +11,4 @@ Color scheme from [Coolors.com](https://coolors.co/palette/03045e-023e8a-0077b6-
 Tailwind code for user creation window: [Flowbite](https://flowbite.com/docs/forms/input-field/)
 
 
-Tailwind guide for chat box: https://www.cluemediator.com/how-to-create-a-chat-layout-with-tailwind-css
+Tailwind guide for chat box: [cluemediator](https://www.cluemediator.com/how-to-create-a-chat-layout-with-tailwind-css)
