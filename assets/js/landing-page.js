@@ -6,7 +6,7 @@ var myUser = {
     targetLang: ""
 }
 
-//Render
+// Pull user information from localStorage, then render the user creation modal
 function UserCreation (){
     if (localStorage.getItem("LingoChatUser")){
         myUser = JSON.parse(localStorage.getItem("LingoChatUser"));
@@ -19,10 +19,12 @@ function UserCreation (){
     $("#exampleModal").modal("show");
 }
 
+// The "Create User" button displays the user creation modal
 $("#userModalToggleButton").on("click", function(){
     $("#exampleModal").modal("show");
 });
 
+// The "Submit" button collects the user information and sends it to localStorage, and then redirects the user to the homepage.
 $("#submit-button").on("click",function(){
     myUser.firstName = $("#first_name").val();
     myUser.lastName = $("#last_name").val();
@@ -30,7 +32,7 @@ $("#submit-button").on("click",function(){
     myUser.targetLang = $("#target_lang").val();
     console.log(myUser);
     localStorage.setItem("LingoChatUser",JSON.stringify(myUser));
-    $("#exampleModal").modal("hide");
+    window.location.href = "homepage.html";
 });
 
 UserCreation();
