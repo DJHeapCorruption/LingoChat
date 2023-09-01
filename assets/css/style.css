@@ -1,6 +1,16 @@
 :root{
     font-family: "caprasimo", "roboto", sans-serif;
 }
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#map{
+    height: 650px;
+    max-height: 100%;
+    width: 100%;
+}
 
 .bg-modal{
     width: 100%;
