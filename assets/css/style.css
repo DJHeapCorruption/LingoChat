@@ -2,8 +2,6 @@
     font-family: "caprasimo", "roboto", sans-serif;
 }
 
-
-
 .bg-modal{
     width: 100%;
     height:100%;
@@ -22,12 +20,13 @@
     border-radius: 4px;
 }
 
-#map{
-    height: 750px;
-    margin-top: 20px;
-}
+
   .main {
     transition: margin-left .5s;
     padding: 20px;
   }
   
+  .text-1 {
+    font-size: 200%;
+    text-decoration: underline;
+  }
