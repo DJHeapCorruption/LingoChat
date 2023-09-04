@@ -1,15 +1,15 @@
 :root{
     font-family: "caprasimo", "roboto", sans-serif;
 }
-body{
-    background-color: rgb(34, 182, 246);
-    padding: 10px 30px;
+html, body {
+  height: 100%;
+  width: 100%;
 }
 
-
-body{
-    background-color: rgb(34, 182, 246);
-    padding: 10px 30px;
+#map{
+    height: 650px;
+    max-height: 100%;
+    width: 100%;
 }
 
 .bg-modal{
@@ -28,5 +28,15 @@ body{
     height: 300px;
     background-color: white;
     border-radius: 4px;
-    I
 }
+
+
+  .main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  .text-1 {
+    font-size: 200%;
+    text-decoration: underline;
+  }
