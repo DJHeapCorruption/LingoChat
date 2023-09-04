@@ -18,6 +18,17 @@ function getChatHistory () {
 }
 getChatHistory();
 
+var chosenUser = stockUsers[0].name
+
+function stockUserChat () {
+    var userName = $('#stock-user-name');
+    userName.text(chosenUser);
+    var greeting = $('#stock-user-chat-1');
+    greeting.text(`Hello, I'm ${stockUsers[0].name}. I like ${stockUsers[0].hobbies[0]} and ${stockUsers[0].hobbies[1]}. What about you?`)
+}
+
+stockUserChat();
+
 
 /*console.log(chosenUser);
 
@@ -47,7 +58,7 @@ textSubmitBtn.on('click', function(event) {
     $('#message').val('');
 });
 
-var wordToDefine = 'hello';
+var wordToDefine = 'night';
 
 var wordDefiner = function() {
     var dictionaryUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToDefine}`;
@@ -60,11 +71,11 @@ var wordDefiner = function() {
                 console.log(data);
             });
         } else {
-            alert('Error: ' + response.statusText)
+            alert('Unable to define word.')
         }
     })
     .catch(function (error) {
-        alert('unable to find translation')
+        alert('Could not define word at this time.')
     })
 }
 
