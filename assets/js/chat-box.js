@@ -18,6 +18,19 @@ function getChatHistory () {
 }
 getChatHistory();
 
+
+/*console.log(chosenUser);
+
+function stockUserChat () {
+
+}
+
+var stockUserSideBarList = $('#stock-user-side-bar');
+
+stockUserSideBarList.on('click', function(event){
+    var chosenUser = event.target;
+})*/
+
 textSubmitBtn.on('click', function(event) {
     event.preventDefault();
     var message = $('#message').val();
