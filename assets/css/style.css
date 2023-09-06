@@ -40,3 +40,7 @@ html, body {
     font-size: 200%;
     text-decoration: underline;
   }
+
+  .picture{
+    align-content: center;
+  }
