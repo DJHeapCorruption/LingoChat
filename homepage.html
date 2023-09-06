@@ -10,14 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/leaflet.umd.js"></script>
+<link href="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin="">
-   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
+
     <script>
+    
             tailwind.config = {
                 theme:{
                     extend:{
@@ -56,13 +56,22 @@
         </aside>     
     <body class="bg-blue-500">
     <div class="main ml-64  text-center">
-        <div class="header relative rounded-2xl bg-non_photo_blue-300">
+        <div class="header relative rounded-2xl bg-non_photo_blue-300 p-5">
         <h2 class="text-1">Welcome to LingoChat</h2>
-            <p>Select your location below to converse with people around you!</p>
-            <button class="button bg-vivid_sky_blue-700 rounded-lg p-2 mt-4 mb-4 hover:bg-honolulu_blue-500">Select Location</button>
+            <p>Search for your location below to find people in your area!</p>
         </div>
-        <div id="map" class="mt-4 rounded-2xl"></div>
-    </div>
+        <div id="map" class="rounded-2xl">
+          <script>
+            const key = 'aGSZbOQNCQmu7csqUaaH';
+            const map = L.map('map').setView([49.2125578, 16.62662018], 14);
+            L.tileLayer(`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${key}`,{ 
+              tileSize: 512,
+              zoomOffset: -1,
+              minZoom: 1,
+              attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+              crossOrigin: true
+            }).addTo(map);
+          </script>
     <script src="./assets/js/map.js"></script>
 </body>
 
