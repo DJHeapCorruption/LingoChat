@@ -1,47 +1,83 @@
 var textSubmitBtn = $('#send-text');
 var chatWindow = $('#chat-window');
-var chatHistory = JSON.parse(localStorage.getItem('history')) || [];
+var chatHistory = [];
+for(i=0;i<stockUsers.length;i++){
+    chatHistory.push([]);
+}
+var userIndex = 0;
 
+function initChat(){
+    userIndex = localStorage.getItem("userIndexLS") || Math.floor(Math.random()*stockUsers.length);
+    localStorage.setItem("userIndexLS",userIndex);
+    var chosenUser = stockUsers[userIndex].name;
+    var userName = $('#stock-user-name');
+    userName.text(chosenUser);
+    if(localStorage.getItem("history")){
+        chatHistory = JSON.parse(localStorage.getItem("history"));
+    } else{
+        stockUserChat();
+    }
+    getChatHistory();
+}
 
 function getChatHistory () {
     $('.messages').remove();
-    for (var i = 0; i < chatHistory.length; i++) {
+    console.log(chatHistory[userIndex].length);
+    for(var i=0;i<chatHistory[userIndex].length;i++){
+        console.log(chatHistory[userIndex][i]);
+        printMessage(chatHistory[userIndex][i]);
+    }
+/*    for (var i = 0; i < chatHistory[userIndex].length; i++) {
         var text = $('<p>');
         text.addClass('messages');
         var textBubble = $('<div>');
-        textBubble.addClass('flex items-center self-start rounded-xl rounded-tl bg-gray-300 py-4 px-3');
-
-        text.text(chatHistory[i]);
+        textBubble.addClass('w-3/4 flex items-center self-start rounded-xl rounded-tl py-4 px-3');
+        if(chatHistory[userIndex][i].isUser){
+            textBubble.addClass("self-start bg-gray-300");
+        } else {
+            textBubble.addClass("self-end bg-blue-500 text-white");
+        }
+        text.text(chatHistory[userIndex][i].text);
         textBubble.append(text);
         chatWindow.append(textBubble);
     }
+*/
 }
-getChatHistory();
-
-var chosenUser = stockUsers[0].name
-
-//TODO: Save stock user messages to local storage
+function printMessage(messageObject){
+    console.log(messageObject.text);
+    var textBubble = $('<div>');
+    textBubble.addClass('w-3/4 flex items-center self-start rounded-xl rounded-tl py-4 px-3');
+    if(messageObject.isUser){
+        textBubble.addClass("self-start bg-gray-300");
+    } else {
+        textBubble.addClass("self-end bg-blue-500 text-white");
+    }
+    var textArr = messageObject.text.split(" ");
+    console.log(textArr);
+    
+    for(i=0; i<textArr.length; i++){
+        var spanEl = $("<span>");
+        spanEl.html(`&nbsp;${textArr[i]}`);
+        textBubble.append(spanEl);
+    }
+    
+    chatWindow.append(textBubble);
+    return;
+}
 
 function stockUserChat () {
-    var userName = $('#stock-user-name');
-    userName.text(chosenUser);
-    var greetingText = `Hello, I'm ${stockUsers[0].name}. I like ${stockUsers[0].hobbies[0]} and ${stockUsers[0].hobbies[1]}. What about you?`;
-    var stockUserWords = greetingText.split(' ');
-    console.log(stockUserWords);
+    var greetingText = `Hello, I'm ${stockUsers[userIndex].name}. I like ${stockUsers[userIndex].hobbies[0]} and ${stockUsers[userIndex].hobbies[1]}. What about you?`;
+    chatHistory[userIndex].push({text: greetingText, isUser: false});
+    localStorage.setItem("history",JSON.stringify(chatHistory));
 
-    var stockUserMessageBubble = $('<div>');
-    stockUserMessageBubble.addClass('user-message flex items-center self-end rounded-xl rounded-tr bg-blue-500 py-2 px-3 text-white');
-
-    for (var i = 0; i <= stockUserWords.length -1; i++) {
+/*    for (var i = 0; i <= stockUserWords.length -1; i++) {
         var spanEl = $('<span>');
         spanEl.html(`&nbsp;${stockUserWords[i]}`);
         stockUserMessageBubble.append(spanEl);
     }
     chatWindow.append(stockUserMessageBubble);
+*/
 }
-
-stockUserChat();
-
 
 /*console.log(chosenUser);
 
@@ -57,18 +93,34 @@ stockUserSideBarList.on('click', function(event){
 
 //Sending messages funcitnality
 
-textSubmitBtn.on('click', function(event) {
-    event.preventDefault();
-    var message = $('#message').val();
-    chatHistory.push(message);
-    localStorage.setItem('history', JSON.stringify(chatHistory));
 
-    var newText = $('<p>');
-    newText.addClass('messages');
-    var newTextBubble = $('<div>');
-    newTextBubble.addClass('flex items-center self-start rounded-xl rounded-tl bg-gray-300 py-4 px-3');
-    newText.text(message);
-    newTextBubble.append(newText);
-    chatWindow.append(newTextBubble);
-    $('#message').val('');
+function collectMessage(event){
+    event.preventDefault();
+    if($("#message").val()){
+        var message = $('#message').val();
+        chatHistory[userIndex].push({text:message, isUser: true});
+        localStorage.setItem('history', JSON.stringify(chatHistory));
+        printMessage({text:message, isUser: true});
+        /*
+        var newText = $('<p>');
+        newText.addClass('messages');
+        var newTextBubble = $('<div>');
+        newTextBubble.addClass('w-3/4 flex items-center self-start rounded-xl rounded-tl bg-gray-300 py-4 px-3');
+        newText.text(message);
+        newTextBubble.append(newText);
+        chatWindow.append(newTextBubble);
+        $('#message').val('');
+        */
+    }
+}
+
+textSubmitBtn.on('click', collectMessage);
+
+document.addEventListener("keydown", function(event){
+    if(event.code === "Enter"){
+        collectMessage(event);
+    }
 });
+
+
+initChat();
