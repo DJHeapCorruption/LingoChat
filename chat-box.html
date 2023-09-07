@@ -42,25 +42,15 @@
 
 <body>
 
-  <!------hero background------->
-
-  <div class="w-full fixed bottom-10 flex justify-center height ">
-    <input type="text" placeholder="Type your message..." class="w-4/5 rounded-lg border border-gray-300 px-4 py-2"
-    id="message" />
-    <button class="ml-2 rounded-lg bg-blue-500 px-4 py-2 text-white" id="send-text">Send</button>
-    <!----------Modal button------>
-    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-      class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      type="button">
-      Translator/Traductor
-    </button>
-  </div>
-
-  <!--Chat Window and Header-->
+  <!-- Header and Chat Window -->
   <div class="flex h-screen flex-col bg-gray-100">
+
+    <!-- Header-->
     <div class="bg-gradient-to-r from-federalBlue to-light_cyan py-4">
       <h1 class="text-center text-2xl text-white">Chat with <span id="stock-user-name"></span></h1>
     </div>
+
+    <!--Chat Window-->
     <div class="flex-grow overflow-y-auto">
       <div class="flex flex-col space-y-2 p-4" id="chat-window">
 
@@ -71,7 +61,28 @@
   </div>
 
 
+  
+  <!-- Footer (Message input, send button, modal toggle) -->
+  <div class="w-full fixed bottom-0 flex justify-center py-4 bg-gradient-to-t from-federalBlue to-light_cyan">
+    
+    <!-- Message input -->
+    <input type="text" placeholder="Type your message..." class="w-4/5 rounded-lg border border-gray-300 px-4 py-2"
+    id="message" />
 
+    <!--Send Button-->
+    <button class="ml-2 rounded-lg bg-blue-500 px-4 py-2 text-white" id="send-text">Send</button>
+
+    <!----------Modal button------>
+    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+      class="block text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      type="button">
+      Translator/Traductor
+    </button>
+  </div>
+
+
+
+  <!-- Translator Notice Modal -->
   <div id="popup-modal" tabindex="-1"
     class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-md max-h-full">
@@ -106,7 +117,7 @@
     </div>
   </div>
 
-  <!------- Modal Welcome page-------->
+  <!------- Welcome Modal -------->
   <!-- Modal toggle -->
   <button data-modal-target="staticModal" data-modal-toggle="staticModal"
     class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -149,6 +160,8 @@
       </div>
     </div>
   </div>
+
+  
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
