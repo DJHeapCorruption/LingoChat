@@ -7,9 +7,9 @@ html, body {
 }
 
 #map{
-    height: 650px;
-    max-height: 100%;
-    width: 100%;
+   height: 750px;
+   margin-top: 30px;
+
 }
 
 .bg-modal{
@@ -39,4 +39,8 @@ html, body {
   .text-1 {
     font-size: 200%;
     text-decoration: underline;
+  }
+
+  .picture{
+    align-content: center;
   }
