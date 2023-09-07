@@ -10,14 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/leaflet.umd.js"></script>
+<link href="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin="">
-   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
+
     <script>
+    
             tailwind.config = {
                 theme:{
                     extend:{
@@ -45,7 +45,7 @@
                     <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                         <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
                     </svg>
-                    <span class="ml-3 text-lg">People in Your Area</span>
+                    <span class="ml-3 text-lg" id="poeple">People in Your Area</span>
                  </a>
                  <a class="people group-hover:text-gray-900 dark:group-hover:text-white  hover:bg-gray-100 dark:hover:bg-gray-700">
                  </a>
@@ -56,13 +56,22 @@
         </aside>     
     <body class="bg-blue-500">
     <div class="main ml-64  text-center">
-        <div class="header relative rounded-2xl bg-non_photo_blue-300">
+        <div class="header relative rounded-2xl bg-non_photo_blue-300 p-5">
         <h2 class="text-1">Welcome to LingoChat</h2>
-            <p>Select your location below to converse with people around you!</p>
-            <button class="button bg-vivid_sky_blue-700 rounded-lg p-2 mt-4 mb-4 hover:bg-honolulu_blue-500">Select Location</button>
+            <p>Search for your location below to find people in your area!</p>
         </div>
-        <div id="map" class="mt-4 rounded-2xl"></div>
-    </div>
+        <div id="map" class="rounded-2xl">
+          <script>
+            const key = 'aGSZbOQNCQmu7csqUaaH';
+            const map = L.map('map').setView([35.782169, -80.793457], 14);
+            L.tileLayer(`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${key}`,{ 
+              tileSize: 512,
+              zoomOffset: -1,
+              minZoom: 1,
+              attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+              crossOrigin: true
+            }).addTo(map);
+          </script>
     <script src="./assets/js/map.js"></script>
 </body>
 

@@ -18,6 +18,30 @@ function getChatHistory () {
 }
 getChatHistory();
 
+var chosenUser = stockUsers[0].name
+
+//TODO: Save stock user messages to local storage
+
+function stockUserChat () {
+    var userName = $('#stock-user-name');
+    userName.text(chosenUser);
+    var greetingText = `Hello, I'm ${stockUsers[0].name}. I like ${stockUsers[0].hobbies[0]} and ${stockUsers[0].hobbies[1]}. What about you?`;
+    var stockUserWords = greetingText.split(' ');
+    console.log(stockUserWords);
+
+    var stockUserMessageBubble = $('<div>');
+    stockUserMessageBubble.addClass('user-message flex items-center self-end rounded-xl rounded-tr bg-blue-500 py-2 px-3 text-white');
+
+    for (var i = 0; i <= stockUserWords.length -1; i++) {
+        var spanEl = $('<span>');
+        spanEl.html(`&nbsp;${stockUserWords[i]}`);
+        stockUserMessageBubble.append(spanEl);
+    }
+    chatWindow.append(stockUserMessageBubble);
+}
+
+stockUserChat();
+
 
 /*console.log(chosenUser);
 
@@ -30,6 +54,8 @@ var stockUserSideBarList = $('#stock-user-side-bar');
 stockUserSideBarList.on('click', function(event){
     var chosenUser = event.target;
 })*/
+
+//Sending messages funcitnality
 
 textSubmitBtn.on('click', function(event) {
     event.preventDefault();
@@ -46,26 +72,3 @@ textSubmitBtn.on('click', function(event) {
     chatWindow.append(newTextBubble);
     $('#message').val('');
 });
-
-var wordToDefine = 'hello';
-
-var wordDefiner = function() {
-    var dictionaryUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToDefine}`;
-
-    fetch(dictionaryUrl)
-        .then(function (response) {
-        if (response.ok) {
-            console.log(response);
-            response.json().then(function (data) {
-                console.log(data);
-            });
-        } else {
-            alert('Error: ' + response.statusText)
-        }
-    })
-    .catch(function (error) {
-        alert('unable to find translation')
-    })
-}
-
-wordDefiner();
