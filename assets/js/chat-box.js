@@ -43,6 +43,7 @@ function getChatHistory () {
     }
 */
 }
+
 function printMessage(messageObject){
     console.log(messageObject.text);
     var textBubble = $('<div>');
@@ -58,6 +59,7 @@ function printMessage(messageObject){
     for(i=0; i<textArr.length; i++){
         var spanEl = $("<span>");
         spanEl.html(`&nbsp;${textArr[i]}`);
+        spanEl.addClass("user-message");
         textBubble.append(spanEl);
     }
     
