@@ -44,3 +44,7 @@ html, body {
   .picture{
     align-content: center;
   }
+
+  .people{
+     cursor: pointer;
+  }
