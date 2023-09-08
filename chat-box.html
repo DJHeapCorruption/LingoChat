@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,49 +16,160 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
   <script>
     tailwind.config = {
-        theme:{
-            extend:{
-                colors:{ 
-                    "federalBlue": { DEFAULT: '#03045e', 100: '#010113', 200: '#010226', 300: '#020338', 400: '#02044b', 500: '#03045e', 600: '#0508ae', 700: '#0f12f8', 800: '#5f61fa', 900: '#afb0fd' },
-                    "marianBlue": { DEFAULT: '#023e8a', 100: '#000c1b', 200: '#011836', 300: '#012451', 400: '#02306d', 500: '#023e8a', 600: '#035cd1', 700: '#2381fc', 800: '#6cabfd', 900: '#b6d5fe' }, 
-                    'honolulu_blue': { DEFAULT: '#0077b6', 100: '#001825', 200: '#003049', 300: '#00486e', 400: '#005f93', 500: '#0077b6', 600: '#00a2f9', 700: '#3bbaff', 800: '#7cd1ff', 900: '#bee8ff' }, 
-                    'blue_green': { DEFAULT: '#0096c7', 100: '#001e28', 200: '#003c50', 300: '#005a77', 400: '#00779f', 500: '#0096c7', 600: '#06c1ff', 700: '#44d0ff', 800: '#83e0ff', 900: '#c1efff' }, 
-                    'pacific_cyan': { DEFAULT: '#00b4d8', 100: '#00242b', 200: '#004756', 300: '#006b81', 400: '#008fab', 500: '#00b4d8', 600: '#12d8ff', 700: '#4ee1ff', 800: '#89ebff', 900: '#c4f5ff' }, 
-                    'vivid_sky_blue': { DEFAULT: '#48cae4', 100: '#082d34', 200: '#105a69', 300: '#17879d', 400: '#1fb4d1', 500: '#48cae4', 600: '#6dd5e9', 700: '#92dfef', 800: '#b6eaf4', 900: '#dbf4fa' }, 
-                    'non_photo_blue': { DEFAULT: '#90e0ef', 100: '#0a3a43', 200: '#137586', 300: '#1dafc9', 400: '#4ccfe6', 500: '#90e0ef', 600: '#a6e7f2', 700: '#bcedf5', 800: '#d2f3f9', 900: '#e9f9fc' }, 
-                    'non_photo_blue': { DEFAULT: '#ade8f4', 100: '#0a3f4a', 200: '#147e93', 300: '#1ebddd', 400: '#65d4ea', 500: '#ade8f4', 600: '#beedf6', 700: '#cff1f8', 800: '#dff6fb', 900: '#effafd' }, 
-                    'light_cyan': { DEFAULT: '#caf0f8', 100: '#0a444f', 200: '#15889f', 300: '#2ac4e3', 400: '#79daee', 500: '#caf0f8', 600: '#d4f3f9', 700: '#dff6fb', 800: '#e9f9fc', 900: '#f4fcfe' } 
-                }
-            }
+      theme: {
+        extend: {
+          colors: {
+            "federalBlue": { DEFAULT: '#03045e', 100: '#010113', 200: '#010226', 300: '#020338', 400: '#02044b', 500: '#03045e', 600: '#0508ae', 700: '#0f12f8', 800: '#5f61fa', 900: '#afb0fd' },
+            "marianBlue": { DEFAULT: '#023e8a', 100: '#000c1b', 200: '#011836', 300: '#012451', 400: '#02306d', 500: '#023e8a', 600: '#035cd1', 700: '#2381fc', 800: '#6cabfd', 900: '#b6d5fe' },
+            'honolulu_blue': { DEFAULT: '#0077b6', 100: '#001825', 200: '#003049', 300: '#00486e', 400: '#005f93', 500: '#0077b6', 600: '#00a2f9', 700: '#3bbaff', 800: '#7cd1ff', 900: '#bee8ff' },
+            'blue_green': { DEFAULT: '#0096c7', 100: '#001e28', 200: '#003c50', 300: '#005a77', 400: '#00779f', 500: '#0096c7', 600: '#06c1ff', 700: '#44d0ff', 800: '#83e0ff', 900: '#c1efff' },
+            'pacific_cyan': { DEFAULT: '#00b4d8', 100: '#00242b', 200: '#004756', 300: '#006b81', 400: '#008fab', 500: '#00b4d8', 600: '#12d8ff', 700: '#4ee1ff', 800: '#89ebff', 900: '#c4f5ff' },
+            'vivid_sky_blue': { DEFAULT: '#48cae4', 100: '#082d34', 200: '#105a69', 300: '#17879d', 400: '#1fb4d1', 500: '#48cae4', 600: '#6dd5e9', 700: '#92dfef', 800: '#b6eaf4', 900: '#dbf4fa' },
+            'non_photo_blue': { DEFAULT: '#90e0ef', 100: '#0a3a43', 200: '#137586', 300: '#1dafc9', 400: '#4ccfe6', 500: '#90e0ef', 600: '#a6e7f2', 700: '#bcedf5', 800: '#d2f3f9', 900: '#e9f9fc' },
+            'non_photo_blue': { DEFAULT: '#ade8f4', 100: '#0a3f4a', 200: '#147e93', 300: '#1ebddd', 400: '#65d4ea', 500: '#ade8f4', 600: '#beedf6', 700: '#cff1f8', 800: '#dff6fb', 900: '#effafd' },
+            'light_cyan': { DEFAULT: '#caf0f8', 100: '#0a444f', 200: '#15889f', 300: '#2ac4e3', 400: '#79daee', 500: '#caf0f8', 600: '#d4f3f9', 700: '#dff6fb', 800: '#e9f9fc', 900: '#f4fcfe' }
+          }
         }
+      }
     }
   </script>
   <title>Chat</title>
- <body>
-   <div class="flex h-screen flex-col bg-gray-100">
-   <div class="bg-gradient-to-r from-federalBlue to-light_cyan py-4">
-     <h1 class="text-center text-2xl text-white">Chat with _____ <span id="stock-user-name"></span></h1>
-   </div>
-   <div class="flex-grow overflow-y-auto" >
-     <div class="flex flex-col space-y-2 p-4" id="chat-window">
-       <!-- Individual chat message -->
-       <div class="flex items-center self-end rounded-xl rounded-tr bg-blue-500 py-2 px-3 text-white">
-         <p id="stock-user-chat-1">This is a sending message</p>
-       </div>
-       <div class="flex items-center self-start rounded-xl rounded-tl bg-gray-300 py-2 px-3">
-         <p id="user-chat-1">This is a receiver message</p>
-       </div>
-     </div>
-   </div>
-   <div class="flex items-center p-4">
-     <input type="text" placeholder="Type your message..." class="w-full rounded-lg border border-gray-300 px-4 py-2"
-            id="message"/>
-     <button class="ml-2 rounded-lg bg-blue-500 px-4 py-2 text-white" id="send-text">Send</button>
-   </div>
- </div>
- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
- <script src="assets/js/chat-box.js"></script>
- </body>
- </html>
+
+<body>
+
+  <!-- Header and Chat Window -->
+  <div class="flex h-screen flex-col bg-blue_green-800">
+
+    <!-- Header-->
+    <div class="bg-blue-500 py-10 flex justify-center">
+      <div class="w-3/4 bg-non_photo_blue-300 py-4 rounded-2xl">
+        <h1 class="text-center text-4xl ">Chat with <span id="stock-user-name"></span></h1>
+      </div>
+    </div>
+
+    <!--Chat Window-->
+    <div class="flex-grow overflow-y-auto">
+      <div class="flex flex-col space-y-2 p-4" id="chat-window">
+
+        <!-- Individual chat messages show up here -->
+        
+      </div>
+    </div>  
+    <!-- Footer (Message input, send button, modal toggle) -->
+    <div class="w-full fixed bottom-0 flex justify-center py-10 bg-blue-500">
+    <div class=" w-3/4 flex justify-center py-4 px-10 rounded-2xl bg-non_photo_blue-300">
+    
+      <!-- Message input -->
+      <input type="text" placeholder="Type your message..." class="w-4/5 rounded-lg border border-gray-300 px-4 py-2"
+      id="message" />
+
+      <!--Send Button-->
+      <button class="ml-2 rounded-lg bg-blue-500 px-4 py-2 text-white active:bg-blue-800" id="send-text">Send</button>
+
+      <!----------Modal button------>
+      <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+        class="block text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="button">
+        Vocab List
+      </button>
+    
+      <!-- Modal toggle -->
+      <button data-modal-target="staticModal" data-modal-toggle="staticModal"
+        class="hidden block text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="button">
+    </button>
+    </div>
+    </div>
+  </div>
+
+
+  
+  
+
+
+
+  <!-- Translator Notice Modal -->
+  <div id="popup-modal" tabindex="-1"
+    class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-md max-h-full">
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <button type="button"
+          class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-hide="popup-modal">
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+        <div class="p-6 text-center">
+          <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+          <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Do you want to open a
+            translator English-Spanish?/ Quieres abrir el traductor Español-Inglés?</h3>
+          <button data-modal-hide="popup-modal" type="button"
+            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+            Yes, please/ Si, por favor
+          </button>
+          <button data-modal-hide="popup-modal" type="button"
+            class=" mt-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No,
+            cancel/No, cancela
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!------- Welcome Modal -------->
+
+  <!-- Startup modal -->
+  <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="false"
+    class="fixed top-0 left-0 right-0 z-50 show w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full justify-center items-center flex">
+    <div class="relative w-full max-w-2xl max-h-full">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <!-- Modal header -->
+        <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+            Welcome
+          </h3>
+        </div>
+
+        <!-- Modal body -->
+        <div class="p-6 space-y-6">
+          <p class="text-base leading-relaxed dark:text-gray-400">
+            Chat with other users here!
+          </p>
+          <p class="text-base leading-relaxed dark:text-gray-400">
+            Click on a word to see its definition.
+          </p>
+        </div>
+
+        <!-- Modal footer (accept/decline buttons) -->
+        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+          <button data-modal-hide="staticModal" type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Great!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="assets/js/users.js"></script>
+  <script src="assets/js/chat-box.js"></script>
+  <script src="assets/js/dictionary.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+</body>
+
+</html>

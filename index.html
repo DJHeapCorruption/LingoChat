@@ -41,15 +41,15 @@
 </head>
 
 <body>
-    <header class="bg-vivid_sky_blue h-20 flex flex-column justify-center items-center">
+    <header class="fixed top-0 bg-vivid_sky_blue-800 w-screen h-20 flex flex-column justify-center items-center">
         <h1 class="text-marianBlue-300 inline-block text-4xl">LingoChat</h1>
         <button type="button" id="userModalToggleButton" class="fixed right-0 mr-10 bg-pacific_cyan hover:bg-pacific_cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-900 font-medium rounded-lg mt-2 text-sm text-marianBlue w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create User</button>
     </header>
 
     
-    <main class="h-screen">
+    <main class="h-screen bg-pacific_cyan">
     
-    <img src="/assets/images/Linguochat.jpeg">
+    <img  class="picture mx-auto justify-center mt-5" src="/assets/images/Linguochat.jpeg">
 
     <!-----Modal Section----->
 
@@ -65,7 +65,7 @@
     aria-hidden="true">
         <div id="userDiv"
         class="pointer-events-auto relative w-auto transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px] flex-column">
-            <h2 class="w-100% bg-federalBlue-800 text-center p-3 rounded-lg mb-3">Account Creation</h2>
+            <h2 class="w-full bg-federalBlue-800 text-center p-3 rounded-lg mb-3">Account Creation</h2>
             
             <label for="first_name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
             <input id="first_name" type="text" placeholder="John" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
@@ -85,10 +85,6 @@
             </select>
 
             <button type="submit" id="submit-button" class="text-marianBlue bg-pacific_cyan hover:bg-pacific_cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-900 font-medium rounded-lg mt-2 text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-        </div>
-    </div>
-    <!-----Modal Section----->
-
         </div>
     </div>
 

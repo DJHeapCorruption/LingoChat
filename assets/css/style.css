@@ -1,6 +1,16 @@
 :root{
     font-family: "caprasimo", "roboto", sans-serif;
 }
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#map{
+   height: 750px;
+   margin-top: 30px;
+
+}
 
 .bg-modal{
     width: 100%;
@@ -29,4 +39,12 @@
   .text-1 {
     font-size: 200%;
     text-decoration: underline;
+  }
+
+  .picture{
+    align-content: center;
+  }
+
+  .people{
+     cursor: pointer;
   }
