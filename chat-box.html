@@ -16,7 +16,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-  <!-----Modal buttom--->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
   <script>
@@ -43,11 +42,13 @@
 <body>
 
   <!-- Header and Chat Window -->
-  <div class="flex h-screen flex-col bg-gray-100">
+  <div class="flex h-screen flex-col bg-blue_green-800">
 
     <!-- Header-->
-    <div class="bg-gradient-to-r from-federalBlue to-light_cyan py-4">
-      <h1 class="text-center text-2xl text-white">Chat with <span id="stock-user-name"></span></h1>
+    <div class="bg-blue-500 py-10 flex justify-center">
+      <div class="w-3/4 bg-non_photo_blue-300 py-4 rounded-2xl">
+        <h1 class="text-center text-4xl ">Chat with <span id="stock-user-name"></span></h1>
+      </div>
     </div>
 
     <!--Chat Window-->
@@ -57,28 +58,38 @@
         <!-- Individual chat messages show up here -->
         
       </div>
+    </div>  
+    <!-- Footer (Message input, send button, modal toggle) -->
+    <div class="w-full fixed bottom-0 flex justify-center py-10 bg-blue-500">
+    <div class=" w-3/4 flex justify-center py-4 px-10 rounded-2xl bg-non_photo_blue-300">
+    
+      <!-- Message input -->
+      <input type="text" placeholder="Type your message..." class="w-4/5 rounded-lg border border-gray-300 px-4 py-2"
+      id="message" />
+
+      <!--Send Button-->
+      <button class="ml-2 rounded-lg bg-blue-500 px-4 py-2 text-white active:bg-blue-800" id="send-text">Send</button>
+
+      <!----------Modal button------>
+      <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+        class="block text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="button">
+        Translator/Traductor
+      </button>
+    
+      <!-- Modal toggle -->
+      <button data-modal-target="staticModal" data-modal-toggle="staticModal"
+      class="block text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      type="button">
+        Welcome Message
+      </button>
+    </div>
     </div>
   </div>
 
 
   
-  <!-- Footer (Message input, send button, modal toggle) -->
-  <div class="w-full fixed bottom-0 flex justify-center py-4 bg-gradient-to-t from-federalBlue to-light_cyan">
-    
-    <!-- Message input -->
-    <input type="text" placeholder="Type your message..." class="w-4/5 rounded-lg border border-gray-300 px-4 py-2"
-    id="message" />
-
-    <!--Send Button-->
-    <button class="ml-2 rounded-lg bg-blue-500 px-4 py-2 text-white" id="send-text">Send</button>
-
-    <!----------Modal button------>
-    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-      class="block text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      type="button">
-      Translator/Traductor
-    </button>
-  </div>
+  
 
 
 
@@ -109,7 +120,7 @@
             Yes, please/ Si, por favor
           </button>
           <button data-modal-hide="popup-modal" type="button"
-            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No,
+            class=" mt-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No,
             cancel/No, cancela
           </button>
         </div>
@@ -118,12 +129,6 @@
   </div>
 
   <!------- Welcome Modal -------->
-  <!-- Modal toggle -->
-  <button data-modal-target="staticModal" data-modal-toggle="staticModal"
-    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-    type="button">
-    Welcome
-  </button>
 
   <!-- Startup modal -->
   <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="false"
@@ -144,7 +149,7 @@
             Chat with other users here!
           </p>
           <p class="text-base leading-relaxed dark:text-gray-400">
-            Click on the word to see if there is a definition.
+            Click on a word to see its definition.
           </p>
         </div>
 
