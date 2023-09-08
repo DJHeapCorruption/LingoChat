@@ -43,21 +43,23 @@ function getChatHistory () {
     }
 */
 }
+
 function printMessage(messageObject){
     console.log(messageObject.text);
     var textBubble = $('<div>');
-    textBubble.addClass('w-3/4 flex items-center self-start rounded-xl rounded-tl py-4 px-3');
+    textBubble.addClass('w-3/4 flex items-center self-start rounded-xl py-4 px-3');
     if(messageObject.isUser){
-        textBubble.addClass("self-start bg-gray-300");
+        textBubble.addClass("self-start bg-light_cyan rounded-tl");
     } else {
-        textBubble.addClass("self-end bg-blue-500 text-white");
+        textBubble.addClass("self-end bg-blue-500 text-white rounded-tr");
     }
+
     var textArr = messageObject.text.split(" ");
     console.log(textArr);
-    
     for(i=0; i<textArr.length; i++){
         var spanEl = $("<span>");
         spanEl.html(`&nbsp;${textArr[i]}`);
+        spanEl.addClass("user-message");
         textBubble.append(spanEl);
     }
     
@@ -101,6 +103,7 @@ function collectMessage(event){
         chatHistory[userIndex].push({text:message, isUser: true});
         localStorage.setItem('history', JSON.stringify(chatHistory));
         printMessage({text:message, isUser: true});
+        $("#message").val("");
         /*
         var newText = $('<p>');
         newText.addClass('messages');
