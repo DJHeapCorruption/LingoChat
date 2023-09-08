@@ -41,20 +41,14 @@
         <div class="h-full px-3 py-4 overflow-y-auto bg-blue_green-800">
            <ul class="space-y-2">
               <li>
-                 
-                
-                <details class="details-eample">
-                <summary class=" text-center text-3xl people items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg">Find people in Your Area</summary>
-                      
-                 <ul class="ollist">
-                    <li  class=" text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 ">John Doe</li>
-                    <li  class=" text-center  items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 mb-24">Juan Nadie</li>
-                    <li  class=" text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mb-24">Monsieur X</li>
-                    <li class=" text-center  items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24">Max Mustermann</li>
-                 </ul>
-                </details>
-                
-                 
+                 <a  class="flex items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg">
+                    <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+                        <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
+                    </svg>
+                    <span class="ml-3 text-lg" id="poeple">People in Your Area</span>
+                 </a>
+                 <a class="people group-hover:text-gray-900 dark:group-hover:text-white  hover:bg-gray-100 dark:hover:bg-gray-700">
+                 </a>
               </li>
                <li>
             </ul>
@@ -64,20 +58,10 @@
     <div class="main ml-64  text-center">
         <div class="header relative rounded-2xl bg-non_photo_blue-300 p-5">
         <h2 class="text-1">Welcome to LingoChat</h2>
-            <p>Search for your location below!</p>
+            <p>Search for your location below to find people in your area!</p>
         </div>
         <div id="map" class="rounded-2xl">
-          <script>
-            const key = 'aGSZbOQNCQmu7csqUaaH';
-            const map = L.map('map').setView([35.782169, -80.793457], 14);
-            L.tileLayer(`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${key}`,{ 
-              tileSize: 512,
-              zoomOffset: -1,
-              minZoom: 1,
-              attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
-              crossOrigin: true
-            }).addTo(map);
-          </script>
+          
     <script src="./assets/js/map.js"></script>
 </body>
 
