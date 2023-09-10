@@ -1,8 +1,10 @@
 var userButton = $(".user-button")
+var chosenUser;
 
 function enterChat(event){
+    chosenUser = event.target.dataset.id;
     console.log(event.target.dataset.id);
-    localStorage.setItem("userIndexLS",event.target.dataset.id);
+    localStorage.setItem("userIndexLS", chosenUser);
     document.location.href= "chat-box.html";
 }
 
