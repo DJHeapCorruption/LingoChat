@@ -6,26 +6,28 @@ for(i=0;i<stockUsers.length;i++){
 }
 var userIndex = 0;
 
-function initChat(){
-    userIndex = localStorage.getItem("userIndexLS") || Math.floor(Math.random()*stockUsers.length);
-    localStorage.setItem("userIndexLS",userIndex);
-    var chosenUser = stockUsers[userIndex].name;
+function initChat() {
+    userIndex = localStorage.getItem("userIndexLS") || Math.floor(Math.random() * stockUsers.length);
+    localStorage.setItem("userIndexLS", userIndex);
+    chosenUser = stockUsers[userIndex].name;
     var userName = $('#stock-user-name');
     userName.text(chosenUser);
-    /*if(localStorage.getItem("history")){
-        chatHistory = JSON.parse(localStorage.getItem("history"));
-    } else{
-        stockUserChat();
-    }*/
-    console.log(JSON.parse(localStorage.getItem("history"))[userIndex].length);
-    if(JSON.parse(localStorage.getItem("history"))[userIndex].length === 0){
-        stockUserChat();
+
+    var storedHistory = localStorage.getItem("history");
+
+    if (storedHistory) {
+        chatHistory = JSON.parse(storedHistory);
     } else {
-        chatHistory = JSON.parse(localStorage.getItem("history"));
+        stockUserChat();
     }
-    console.log(chatHistory);
+
+    if (!chatHistory[userIndex] || chatHistory[userIndex].length === 0) {
+        stockUserChat();
+    }
+
     getChatHistory();
 }
+
 
 function getChatHistory () {
     $('.messages').remove();
@@ -75,10 +77,21 @@ function printMessage(messageObject){
 }
 
 function stockUserChat () {
-    chatHistory = JSON.parse(localStorage.getItem("history"));
+    var storedHistory = localStorage.getItem("history");
+    chatHistory = storedHistory ? JSON.parse(storedHistory) : [];
+
     var greetingText = `Hello, I'm ${stockUsers[userIndex].name}. I like ${stockUsers[userIndex].hobbies[0]} and ${stockUsers[userIndex].hobbies[1]}. What about you?`;
+
+    if (!Array.isArray(chatHistory[userIndex])) {
+        chatHistory[userIndex] = [];
+    }
+
     chatHistory[userIndex].push({text: greetingText, isUser: false});
-    localStorage.setItem("history",JSON.stringify(chatHistory));
+    localStorage.setItem("history", JSON.stringify(chatHistory));
+
+    // Rest of the function...
+}
+
 
 /*    for (var i = 0; i <= stockUserWords.length -1; i++) {
         var spanEl = $('<span>');
@@ -87,7 +100,6 @@ function stockUserChat () {
     }
     chatWindow.append(stockUserMessageBubble);
 */
-}
 
 /*console.log(chosenUser);
 

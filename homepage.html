@@ -11,27 +11,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/leaflet.umd.js"></script>
-    <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/style.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-
+<link href="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/style.css" rel="stylesheet">
     <script>
-    
             tailwind.config = {
                 theme:{
                     extend:{
-                        colors:{ 
-                            "federalBlue": { DEFAULT: '#03045e', 100: '#010113', 200: '#010226', 300: '#020338', 400: '#02044b', 500: '#03045e', 600: '#0508ae', 700: '#0f12f8', 800: '#5f61fa', 900: '#afb0fd' },
-                            "marianBlue": { DEFAULT: '#023e8a', 100: '#000c1b', 200: '#011836', 300: '#012451', 400: '#02306d', 500: '#023e8a', 600: '#035cd1', 700: '#2381fc', 800: '#6cabfd', 900: '#b6d5fe' }, 
-                            'honolulu_blue': { DEFAULT: '#0077b6', 100: '#001825', 200: '#003049', 300: '#00486e', 400: '#005f93', 500: '#0077b6', 600: '#00a2f9', 700: '#3bbaff', 800: '#7cd1ff', 900: '#bee8ff' }, 
-                            'blue_green': { DEFAULT: '#0096c7', 100: '#001e28', 200: '#003c50', 300: '#005a77', 400: '#00779f', 500: '#0096c7', 600: '#06c1ff', 700: '#44d0ff', 800: '#83e0ff', 900: '#c1efff' }, 
-                            'pacific_cyan': { DEFAULT: '#00b4d8', 100: '#00242b', 200: '#004756', 300: '#006b81', 400: '#008fab', 500: '#00b4d8', 600: '#12d8ff', 700: '#4ee1ff', 800: '#89ebff', 900: '#c4f5ff' }, 
-                            'vivid_sky_blue': { DEFAULT: '#48cae4', 100: '#082d34', 200: '#105a69', 300: '#17879d', 400: '#1fb4d1', 500: '#48cae4', 600: '#6dd5e9', 700: '#92dfef', 800: '#b6eaf4', 900: '#dbf4fa' }, 
-                            'non_photo_blue': { DEFAULT: '#90e0ef', 100: '#0a3a43', 200: '#137586', 300: '#1dafc9', 400: '#4ccfe6', 500: '#90e0ef', 600: '#a6e7f2', 700: '#bcedf5', 800: '#d2f3f9', 900: '#e9f9fc' }, 
-                            'non_photo_blue': { DEFAULT: '#ade8f4', 100: '#0a3f4a', 200: '#147e93', 300: '#1ebddd', 400: '#65d4ea', 500: '#ade8f4', 600: '#beedf6', 700: '#cff1f8', 800: '#dff6fb', 900: '#effafd' }, 
-                            'light_cyan': { DEFAULT: '#caf0f8', 100: '#0a444f', 200: '#15889f', 300: '#2ac4e3', 400: '#79daee', 500: '#caf0f8', 600: '#d4f3f9', 700: '#dff6fb', 800: '#e9f9fc', 900: '#f4fcfe' } 
+                        colors:{
+                            "federalBlue": { DEFAULT: '#03045E', 100: '#010113', 200: '#010226', 300: '#020338', 400: '#02044B', 500: '#03045E', 600: '#0508AE', 700: '#0F12F8', 800: '#5F61FA', 900: '#AFB0FD' },
+                            "marianBlue": { DEFAULT: '#023E8A', 100: '#000C1B', 200: '#011836', 300: '#012451', 400: '#02306D', 500: '#023E8A', 600: '#035CD1', 700: '#2381FC', 800: '#6CABFD', 900: '#B6D5FE' },
+                            'honolulu_blue': { DEFAULT: '#0077B6', 100: '#001825', 200: '#003049', 300: '#00486E', 400: '#005F93', 500: '#0077B6', 600: '#00A2F9', 700: '#3BBAFF', 800: '#7CD1FF', 900: '#BEE8FF' },
+                            'blue_green': { DEFAULT: '#0096C7', 100: '#001E28', 200: '#003C50', 300: '#005A77', 400: '#00779F', 500: '#0096C7', 600: '#06C1FF', 700: '#44D0FF', 800: '#83E0FF', 900: '#C1EFFF' },
+                            'pacific_cyan': { DEFAULT: '#00B4D8', 100: '#00242B', 200: '#004756', 300: '#006B81', 400: '#008FAB', 500: '#00B4D8', 600: '#12D8FF', 700: '#4EE1FF', 800: '#89EBFF', 900: '#C4F5FF' },
+                            'vivid_sky_blue': { DEFAULT: '#48CAE4', 100: '#082D34', 200: '#105A69', 300: '#17879D', 400: '#1FB4D1', 500: '#48CAE4', 600: '#6DD5E9', 700: '#92DFEF', 800: '#B6EAF4', 900: '#DBF4FA' },
+                            'non_photo_blue': { DEFAULT: '#90E0EF', 100: '#0A3A43', 200: '#137586', 300: '#1DAFC9', 400: '#4CCFE6', 500: '#90E0EF', 600: '#A6E7F2', 700: '#BCEDF5', 800: '#D2F3F9', 900: '#E9F9FC' },
+                            'non_photo_blue': { DEFAULT: '#ADE8F4', 100: '#0A3F4A', 200: '#147E93', 300: '#1EBDDD', 400: '#65D4EA', 500: '#ADE8F4', 600: '#BEEDF6', 700: '#CFF1F8', 800: '#DFF6FB', 900: '#EFFAFD' },
+                            'light_cyan': { DEFAULT: '#CAF0F8', 100: '#0A444F', 200: '#15889F', 300: '#2AC4E3', 400: '#79DAEE', 500: '#CAF0F8', 600: '#D4F3F9', 700: '#DFF6FB', 800: '#E9F9FC', 900: '#F4FCFE' }
                         }
                     }
                 }
@@ -42,42 +39,39 @@
         <div class="h-full px-3 py-4 overflow-y-auto bg-blue_green-800">
            <ul class="space-y-2">
               <li>
-                 
-                
                 <details class="details-eample">
                 <summary class=" text-center text-3xl people items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg">Find people in Your Area</summary>
-                      
                  <ul class="ollist">
-                    <li  data-id="0" class="user-button active:bg-non_photo_blue-300 text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 ">John Doe</li>
-                    <li  data-id="1" class="user-button active:bg-non_photo_blue-300 text-center  items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 mb-24">Juan Nadie</li>
-                    <li  data-id="2" class="user-button active:bg-non_photo_blue-300 text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mb-24">Monsieur X</li>
-                    <li  data-id="3" class="user-button active:bg-non_photo_blue-300 text-center  items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24">Max Mustermann</li>
+                    <li data-id="0" class="user-button text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 ">John Doe</li>
+                    <li data-id="1" class="user-button text-center  items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 mb-24">Juan Nadie</li>
+                    <li data-id="2" class="user-button text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mb-24">Monsieur X</li>
+                    <li data-id="3" class="user-button text-center  items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24">Max Mustermann</li>
                  </ul>
                 </details>
-                
-                 
-                 <a  class="flex items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg">
-                    <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                        <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
-                    </svg>
-                    <span class="ml-3 text-lg" id="poeple">People in Your Area</span>
-                 </a>
-                 <a class="people group-hover:text-gray-900 dark:group-hover:text-white  hover:bg-gray-100 dark:hover:bg-gray-700">
-                 </a>
               </li>
+               <li>
             </ul>
          </div>
-        </aside>     
+        </aside>
     <body class="bg-blue-500">
     <div class="main ml-64  text-center">
         <div class="header relative rounded-2xl bg-non_photo_blue-300 p-5">
         <h2 class="text-1">Welcome to LingoChat</h2>
-            <p>Search for your location below to find people in your area!</p>
+            <p>Search for your location below!</p>
         </div>
         <div id="map" class="rounded-2xl">
-          
+          <script>
+            const key = 'aGSZbOQNCQmu7csqUaaH';
+            const map = L.map('map').setView([35.782169, -80.793457], 14);
+            L.tileLayer(`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${key}`,{
+              tileSize: 512,
+              zoomOffset: -1,
+              minZoom: 1,
+              attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+              crossOrigin: true
+            }).addTo(map);
+          </script>
     <script src="./assets/js/map.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
-
 </html>
