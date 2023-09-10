@@ -9,6 +9,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var marker = L.marker([35.784908, -78.647333], {draggable: true}).addTo(map);
 
 
+
     var popup = L.popup();
 
     function onMapClick(e) {
@@ -21,15 +22,31 @@ var marker = L.marker([35.784908, -78.647333], {draggable: true}).addTo(map);
     map.on('click', nearbyPeople);
     
     function nearbyPeople(event) {
+        var sidebar = document.querySelector(".ollist");
+        $(".ollist").empty();
+
         for (var i = 0; i < stockUsers.length; i++) {
             var displayUser = document.createElement("li");
-            displayUser.innerHTML = stockUsers;
-            displayUser.setAttribute("class","user-button active:bg-non_photo_blue-300 text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 ");
-            displayUser.setAttribute("data-id", i);
-            var sidebar = document.querySelector(".ollist");
+            displayUser.innerHTML = stockUsers[i].name;
+            displayUser.setAttribute("class","user-button active:bg-non_photo_blue-300 cursor-pointer text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 ");
+            displayUser.setAttribute("data-id", ""+i);
+            console.log(displayUser.getAttribute("data-id"));
+            
             sidebar.appendChild(displayUser);
+            
         }
+        $(".user-button").on("click", enterChat);
+        
     }
+
+    function enterChat(event){
+        
+        var chosenUser = event.target.dataset.id;
+        console.log(event.target.dataset.id);
+        localStorage.setItem("userIndexLS", chosenUser);
+        document.location.href= "chat-box.html";
+    }
+    
 
     var stockUsers = [
         {
