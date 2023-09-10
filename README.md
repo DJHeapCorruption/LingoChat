@@ -12,7 +12,7 @@ After creating a profile based on their language learning preferences, users can
 
 Once choosing a potential language learning partner from the list of local language learners, the user can communicate with them through a chatting window. In anticipation of communication difficulties between people of different langauge backgrounds, the chatting window is equipped with a dictionary feature, allowing users to resolve any areas of confusion that may occur in conversation.
 
-# Credits
+## Credits
 
 Tailwind code for modals: [Tailwind Elements](https://tailwind-elements.com/docs/standard/components/modal/)
 
