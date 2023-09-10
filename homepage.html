@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/leaflet.umd.js"></script>
-<link href="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/style.css" rel="stylesheet">
+    <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
     <script>
@@ -41,6 +42,20 @@
         <div class="h-full px-3 py-4 overflow-y-auto bg-blue_green-800">
            <ul class="space-y-2">
               <li>
+                 
+                
+                <details class="details-eample">
+                <summary class=" text-center text-3xl people items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg">Find people in Your Area</summary>
+                      
+                 <ul class="ollist">
+                    <li  data-id="0" class="user-button active:bg-non_photo_blue-300 text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 ">John Doe</li>
+                    <li  data-id="1" class="user-button active:bg-non_photo_blue-300 text-center  items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 mb-24">Juan Nadie</li>
+                    <li  data-id="2" class="user-button active:bg-non_photo_blue-300 text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mb-24">Monsieur X</li>
+                    <li  data-id="3" class="user-button active:bg-non_photo_blue-300 text-center  items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24">Max Mustermann</li>
+                 </ul>
+                </details>
+                
+                 
                  <a  class="flex items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg">
                     <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                         <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
@@ -50,7 +65,6 @@
                  <a class="people group-hover:text-gray-900 dark:group-hover:text-white  hover:bg-gray-100 dark:hover:bg-gray-700">
                  </a>
               </li>
-               <li>
             </ul>
          </div>
         </aside>     
@@ -63,6 +77,7 @@
         <div id="map" class="rounded-2xl">
           
     <script src="./assets/js/map.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

@@ -12,11 +12,18 @@ function initChat(){
     var chosenUser = stockUsers[userIndex].name;
     var userName = $('#stock-user-name');
     userName.text(chosenUser);
-    if(localStorage.getItem("history")){
+    /*if(localStorage.getItem("history")){
         chatHistory = JSON.parse(localStorage.getItem("history"));
     } else{
         stockUserChat();
+    }*/
+    console.log(JSON.parse(localStorage.getItem("history"))[userIndex].length);
+    if(JSON.parse(localStorage.getItem("history"))[userIndex].length === 0){
+        stockUserChat();
+    } else {
+        chatHistory = JSON.parse(localStorage.getItem("history"));
     }
+    console.log(chatHistory);
     getChatHistory();
 }
 
@@ -47,7 +54,7 @@ function getChatHistory () {
 function printMessage(messageObject){
     console.log(messageObject.text);
     var textBubble = $('<div>');
-    textBubble.addClass('w-3/4 flex items-center self-start rounded-xl py-4 px-3');
+    textBubble.addClass('w-3/4 flex items-center self-start rounded-2xl py-4 px-3');
     if(messageObject.isUser){
         textBubble.addClass("self-start bg-light_cyan rounded-tl");
     } else {
@@ -68,6 +75,7 @@ function printMessage(messageObject){
 }
 
 function stockUserChat () {
+    chatHistory = JSON.parse(localStorage.getItem("history"));
     var greetingText = `Hello, I'm ${stockUsers[userIndex].name}. I like ${stockUsers[userIndex].hobbies[0]} and ${stockUsers[userIndex].hobbies[1]}. What about you?`;
     chatHistory[userIndex].push({text: greetingText, isUser: false});
     localStorage.setItem("history",JSON.stringify(chatHistory));
