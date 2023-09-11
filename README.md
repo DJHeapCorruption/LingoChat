@@ -2,7 +2,7 @@
 
 This web application was designed with the aim of helping language learners communicate, meet, and perhaps even become friends with others who are similarly interested in language exchange.
 
-LingoChat showcases third-party APIs such as jQuery and TailwindCSS, as well as server-side APIs such as OpenStreetMap and FreeDictionary.
+LingoChat showcases third-party APIs such as jQuery and TailwindCSS, as well as server-side APIs such as OpenStreetMap/MapTiler and FreeDictionary.
 
 ## Usage
 
@@ -32,4 +32,4 @@ Tailwind guide for chat box: [cluemediator](https://www.cluemediator.com/how-to-
 
 Dictionary API: [Free Dictionary](https://dictionaryapi.dev/)
 
-Map API: [OpenStreetMap](https://www.openstreetmap.org/#map=4/40.31/-98.26)
+Map API: [OpenStreetMap](https://www.openstreetmap.org/#map=4/40.31/-98.26) and [MapTiler](https://www.maptiler.com/).
