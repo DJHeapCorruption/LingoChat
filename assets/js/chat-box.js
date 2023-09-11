@@ -4,12 +4,13 @@ var chatHistory = [];
 for(i=0;i<stockUsers.length;i++){
     chatHistory.push([]);
 }
-var userIndex = 0;
+var userIndex;
 
 function initChat() {
-    userIndex = localStorage.getItem("userIndexLS") || Math.floor(Math.random() * stockUsers.length);
+    userIndex = localStorage.getItem("userIndexLS");
     localStorage.setItem("userIndexLS", userIndex);
     chosenUser = stockUsers[userIndex].name;
+    console.log("user index: "+userIndex);
     var userName = $('#stock-user-name');
     userName.text(chosenUser);
 

@@ -32,10 +32,12 @@ var listLength = 2;
         for (var i = 0; i < listLength; i++) {
             var displayUser = document.createElement("li");
             var index = Math.floor(Math.random()*tempList.length);
-                
+            console.log("index: "+index);
             displayUser.innerHTML = tempList[index].name;
             displayUser.setAttribute("class","user-button active:bg-non_photo_blue-300 cursor-pointer text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 ");
-            displayUser.setAttribute("data-id", ""+index);
+            var trueIndex = tempList[index].index;
+            console.log("user "+i+"'s index: "+trueIndex);
+            displayUser.setAttribute("data-id", ""+trueIndex);
             tempList.splice(index,1);
             sidebar.appendChild(displayUser);
             
@@ -59,24 +61,28 @@ var listLength = 2;
             age: "34",
             targetLanguage: "Spanish",
             hobbies: ["playing basketball", "programming"],
+            index: 0
         },
         {
             name: "Juan Nadie",
             age: "27",
             targetLanguage: "Spanish",
             hobbies: ["jigsaw puzzles", "reading"],
+            index: 1
         },
         {
             name: "Monsieur X",
             age: "22",
             targetLanguage: "Spanish",
             hobbies: ["reading", "fishing"],
+            index: 2
         },
         {
             name: "Max Mustermann",
             age: "19",
             targetLanguage: "Spanish",
             hobbies: ["ice skating", "cooking"],
+            index: 3
         }
     ]
    var i=0
