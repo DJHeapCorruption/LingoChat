@@ -8,9 +8,15 @@ LingoChat showcases third-party APIs such as jQuery and TailwindCSS, as well as 
 
 The application can be accessed [here](https://colcob98.github.io/LingoChat/).
 
+![The profile creation screen.](./assets/images/accSC.png)
+
 After creating a profile based on their language learning preferences, users can select an area on a map in which they would prefer to meet, thereby displaying other users in the area.
 
+![Display of people in your area.](./assets/images/mapSC.png)
+
 Once choosing a potential language learning partner from the list of local language learners, the user can communicate with them through a chatting window. In anticipation of communication difficulties between people of different langauge backgrounds, the chatting window is equipped with a dictionary feature, allowing users to resolve any areas of confusion that may occur in conversation.
+
+![The dictionary API in action.](./assets/images/dictSC.png)
 
 ## Credits
 
