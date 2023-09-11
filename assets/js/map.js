@@ -7,7 +7,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var marker = L.marker([35.784908, -78.647333], {draggable: true}).addTo(map);
-
+var listLength = 2;
 
 
     var popup = L.popup();
@@ -25,13 +25,18 @@ var marker = L.marker([35.784908, -78.647333], {draggable: true}).addTo(map);
         var sidebar = document.querySelector(".ollist");
         $(".ollist").empty();
 
-        for (var i = 0; i < stockUsers.length; i++) {
-            var displayUser = document.createElement("li");
-            displayUser.innerHTML = stockUsers[i].name;
-            displayUser.setAttribute("class","user-button active:bg-non_photo_blue-300 cursor-pointer text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 ");
-            displayUser.setAttribute("data-id", ""+i);
-            console.log(displayUser.getAttribute("data-id"));
+        var tempList = stockUsers;
+        
             
+
+        for (var i = 0; i < listLength; i++) {
+            var displayUser = document.createElement("li");
+            var index = Math.floor(Math.random()*tempList.length);
+                
+            displayUser.innerHTML = tempList[index].name;
+            displayUser.setAttribute("class","user-button active:bg-non_photo_blue-300 cursor-pointer text-center items-center p-2 text-gray-900  dark:text-white group border-b-2 border-gray-700 bg-non_photo_blue rounded-lg mt-24 ");
+            displayUser.setAttribute("data-id", ""+index);
+            tempList.splice(index,1);
             sidebar.appendChild(displayUser);
             
         }
